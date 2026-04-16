@@ -1,4 +1,8 @@
 import { formatPrice, stars } from '../../utils/formatters'
+import { Badge, Button } from '@radix-ui/themes'
+import { ChatBubbleIcon } from '@radix-ui/react-icons'
+import { SoftIcon } from '../ui/SoftIcon'
+import { getCategoryIcon } from '../../utils/catalogIcons'
 
 export function ProductCard({ product, inCart, onOpenDetails, onAddToCart, onWhatsApp }) {
   return (
@@ -16,10 +20,10 @@ export function ProductCard({ product, inCart, onOpenDetails, onAddToCart, onWha
     >
       <div className="card-header">
         <div className="card-icon-wrap" aria-hidden="true">
-          {product.icon}
+          <SoftIcon icon={getCategoryIcon(product.category)} size="lg" className="product-soft-icon" />
         </div>
         <div className="card-badges">
-          <span className={`badge ${product.badgeType}`}>{product.badge}</span>
+          <Badge className={`badge ${product.badgeType}`}>{product.badge}</Badge>
         </div>
       </div>
 
@@ -50,8 +54,10 @@ export function ProductCard({ product, inCart, onOpenDetails, onAddToCart, onWha
           <span className="price-model">/{product.priceModel}</span>
         </div>
         <div className="card-actions">
-          <button
+          <Button
             type="button"
+            variant="surface"
+            color="green"
             className="btn btn-whatsapp btn-sm"
             onClick={(event) => {
               event.stopPropagation()
@@ -59,10 +65,12 @@ export function ProductCard({ product, inCart, onOpenDetails, onAddToCart, onWha
             }}
             aria-label={`Contato WhatsApp para ${product.name}`}
           >
-            💬
-          </button>
-          <button
+            <SoftIcon icon={ChatBubbleIcon} size="sm" />
+          </Button>
+          <Button
             type="button"
+            variant={inCart ? 'surface' : 'solid'}
+            color="green"
             className={`btn ${inCart ? 'btn-ghost' : 'btn-primary'} btn-sm`}
             onClick={(event) => {
               event.stopPropagation()
@@ -70,8 +78,8 @@ export function ProductCard({ product, inCart, onOpenDetails, onAddToCart, onWha
             }}
             aria-label={inCart ? 'Já no carrinho' : 'Adicionar ao carrinho'}
           >
-            {inCart ? '✓ No Carrinho' : '🛒 Adicionar'}
-          </button>
+            {inCart ? 'No Carrinho' : 'Adicionar'}
+          </Button>
         </div>
       </div>
     </article>

@@ -1,4 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
+import {
+  ChatBubbleIcon,
+  ClockIcon,
+  EnvelopeClosedIcon,
+  GlobeIcon,
+  InstagramLogoIcon,
+  LightningBoltIcon,
+  LinkedInLogoIcon,
+  MagnifyingGlassIcon,
+  PlayIcon,
+} from '@radix-ui/react-icons'
 import { CategoryGrid } from '../components/catalog/CategoryGrid'
 import { ProductCard } from '../components/catalog/ProductCard'
 import { ProductsToolbar } from '../components/catalog/ProductsToolbar'
@@ -12,6 +23,8 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { getCatalogData } from '../services/catalogService'
 import { formatPrice } from '../utils/formatters'
 import { openWhatsApp } from '../utils/whatsapp'
+import { SoftIcon } from '../components/ui/SoftIcon'
+import { getCategoryIcon, PAGE_ICON_COMPONENTS } from '../utils/catalogIcons'
 
 export function HomePage() {
   const [categories, setCategories] = useState([])
@@ -66,7 +79,7 @@ export function HomePage() {
       return
     }
 
-    pushToast(`${product.icon} "${product.name}" adicionado ao carrinho!`)
+    pushToast(`"${product.name}" adicionado ao carrinho!`)
   }
 
   function handleSelectCategory(categoryId) {
@@ -109,7 +122,10 @@ export function HomePage() {
       <section id="hero">
         <div className="hero-inner">
           <div className="hero-text animate-in">
-            <div className="hero-tag">⚡ Nascido no Amazonas, Feito para o Brasil</div>
+            <div className="hero-tag">
+              <SoftIcon icon={PAGE_ICON_COMPONENTS.brand} size="sm" />
+              Nascido no Amazonas, Feito para o Brasil
+            </div>
             <h1>
               O marketplace de <span>software</span> mais completo do Norte
             </h1>
@@ -119,10 +135,10 @@ export function HomePage() {
             </p>
             <div className="hero-actions">
               <a href="#products" className="btn btn-primary">
-                🛒 Ver Softwares
+                <SoftIcon icon={getCategoryIcon('supermercado')} size="sm" /> Ver Softwares
               </a>
               <a href="#how-it-works" className="btn btn-ghost">
-                Como Funciona
+                <SoftIcon icon={PAGE_ICON_COMPONENTS.stepPlan} size="sm" /> Como Funciona
               </a>
             </div>
             <div className="hero-stats">
@@ -144,7 +160,9 @@ export function HomePage() {
           <div className="hero-visual" aria-hidden="true">
             <div className="hero-card-stack">
               <div className="hero-card hero-card-back1">
-                <span className="hcard-icon">📦</span>
+                <span className="hcard-icon">
+                  <SoftIcon icon={getCategoryIcon('estoque')} size="lg" />
+                </span>
                 <div className="hcard-name">GestorEstoque Pro</div>
                 <div className="hcard-cat">Controle de Estoque</div>
                 <div className="hcard-price">
@@ -152,7 +170,9 @@ export function HomePage() {
                 </div>
               </div>
               <div className="hero-card hero-card-back2">
-                <span className="hcard-icon">🍽️</span>
+                <span className="hcard-icon">
+                  <SoftIcon icon={getCategoryIcon('restaurante')} size="lg" />
+                </span>
                 <div className="hcard-name">PDV Restaurante</div>
                 <div className="hcard-cat">Gestão de Restaurante</div>
                 <div className="hcard-price">
@@ -160,7 +180,9 @@ export function HomePage() {
                 </div>
               </div>
               <div className="hero-card hero-card-main">
-                <span className="hcard-icon">🛒</span>
+                <span className="hcard-icon">
+                  <SoftIcon icon={getCategoryIcon('supermercado')} size="lg" />
+                </span>
                 <div className="hcard-name">SuperMarket Total</div>
                 <div className="hcard-cat">Gestão de Supermercado</div>
                 <div className="hcard-stars">
@@ -173,10 +195,10 @@ export function HomePage() {
             </div>
 
             <div className="floating-badge floating-badge-1">
-              ✅ <span>Licença ativada!</span>
+              <SoftIcon icon={PAGE_ICON_COMPONENTS.verified} size="sm" /> <span>Licença ativada!</span>
             </div>
             <div className="floating-badge floating-badge-2">
-              🇧🇷 <span>Suporte em Manaus</span>
+              <SoftIcon icon={PAGE_ICON_COMPONENTS.support} size="sm" /> <span>Suporte em Manaus</span>
             </div>
           </div>
         </div>
@@ -217,7 +239,9 @@ export function HomePage() {
           <div id="products-grid" aria-label="Lista de softwares">
             {filteredProducts.length === 0 ? (
               <div className="no-results">
-                <div className="no-results-icon">🔍</div>
+                <div className="no-results-icon">
+                  <SoftIcon icon={MagnifyingGlassIcon} size="lg" />
+                </div>
                 <h3>Nenhum software encontrado</h3>
                 <p>Tente outra categoria ou termo de busca.</p>
                 <button type="button" className="btn btn-ghost btn-sm" onClick={resetFilters} style={{ marginTop: '1rem' }}>
@@ -250,19 +274,25 @@ export function HomePage() {
           <div className="how-grid animate-in">
             <div className="how-step">
               <div className="step-number">1</div>
-              <div className="step-icon">🔍</div>
+              <div className="step-icon">
+                <SoftIcon icon={PAGE_ICON_COMPONENTS.stepSearch} size="md" />
+              </div>
               <h3>Escolha o Software</h3>
               <p>Navegue pelo catálogo, filtre por categoria e compare soluções para encontrar o sistema ideal para o seu negócio.</p>
             </div>
             <div className="how-step">
               <div className="step-number">2</div>
-              <div className="step-icon">📋</div>
+              <div className="step-icon">
+                <SoftIcon icon={PAGE_ICON_COMPONENTS.stepPlan} size="md" />
+              </div>
               <h3>Solicite e Licencie</h3>
               <p>Adicione ao carrinho ou entre em contato via WhatsApp. Nossa equipe em Manaus cuidará de tudo.</p>
             </div>
             <div className="how-step">
               <div className="step-number">3</div>
-              <div className="step-icon">🚀</div>
+              <div className="step-icon">
+                <SoftIcon icon={PAGE_ICON_COMPONENTS.stepRocket} size="md" />
+              </div>
               <h3>Implante e Cresça</h3>
               <p>Receba acesso imediato, suporte de implantação e treinamento. Comece a usar seu sistema em até 48 horas.</p>
             </div>
@@ -303,14 +333,14 @@ export function HomePage() {
           <p>Fale com nossa equipe em Manaus e receba uma recomendação personalizada, grátis.</p>
           <div className="cta-actions">
             <a href="#products" className="btn btn-white btn-sm">
-              🖥️ Ver Catálogo
+              <SoftIcon icon={getCategoryIcon('supermercado')} size="sm" /> Ver Catálogo
             </a>
             <button
               type="button"
               className="btn btn-outline-white btn-sm"
               onClick={() => openWhatsApp('Olá! Gostaria de uma recomendação de software para meu negócio.')}
             >
-              💬 Falar no WhatsApp
+              <SoftIcon icon={ChatBubbleIcon} size="sm" /> Falar no WhatsApp
             </button>
           </div>
         </div>
@@ -320,7 +350,9 @@ export function HomePage() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="navbar-logo" style={{ marginBottom: '0.8rem' }}>
-              <div className="logo-icon">⚡</div>
+              <div className="logo-icon">
+                <LightningBoltIcon width="20" height="20" className="logo-bolt-icon" />
+              </div>
               <span>TupãSoft</span>
             </div>
             <p>
@@ -329,16 +361,16 @@ export function HomePage() {
             </p>
             <div className="footer-social">
               <a className="social-btn" href="#" aria-label="Instagram">
-                📸
+                <SoftIcon icon={InstagramLogoIcon} size="sm" />
               </a>
               <a className="social-btn" href="#" aria-label="Facebook">
-                📘
+                <SoftIcon icon={GlobeIcon} size="sm" />
               </a>
               <a className="social-btn" href="#" aria-label="LinkedIn">
-                💼
+                <SoftIcon icon={LinkedInLogoIcon} size="sm" />
               </a>
               <a className="social-btn" href="#" aria-label="YouTube">
-                ▶️
+                <SoftIcon icon={PlayIcon} size="sm" />
               </a>
             </div>
           </div>
@@ -405,17 +437,25 @@ export function HomePage() {
 
           <div className="footer-col footer-contact">
             <h4>Contato</h4>
-            <p>📍 Manaus, Amazonas — Brasil</p>
-            <p>📞 (92) 9 9999-0000</p>
-            <p>📧 contato@tupansoft.com.br</p>
-            <p>🕐 Seg-Sex: 8h às 18h</p>
+            <p>
+              <SoftIcon icon={GlobeIcon} size="sm" /> Manaus, Amazonas — Brasil
+            </p>
+            <p>
+              <SoftIcon icon={ChatBubbleIcon} size="sm" /> (92) 9 9999-0000
+            </p>
+            <p>
+              <SoftIcon icon={EnvelopeClosedIcon} size="sm" /> contato@tupansoft.com.br
+            </p>
+            <p>
+              <SoftIcon icon={ClockIcon} size="sm" /> Seg-Sex: 8h às 18h
+            </p>
             <br />
             <button
               type="button"
               onClick={() => openWhatsApp('Olá! Tenho interesse nos softwares da TupãSoft.')}
               className="btn btn-whatsapp btn-sm"
             >
-              💬 WhatsApp
+              <SoftIcon icon={ChatBubbleIcon} size="sm" /> WhatsApp
             </button>
           </div>
         </div>

@@ -1,3 +1,14 @@
+import {
+  ChatBubbleIcon,
+  Cross2Icon,
+  HamburgerMenuIcon,
+  LightningBoltIcon,
+  MagnifyingGlassIcon,
+} from '@radix-ui/react-icons'
+import { IconButton, TextField } from '@radix-ui/themes'
+import { SoftIcon } from '../ui/SoftIcon'
+import { getCategoryIcon, PAGE_ICON_COMPONENTS } from '../../utils/catalogIcons'
+
 export function Navbar({
   search,
   onSearch,
@@ -13,24 +24,27 @@ export function Navbar({
         <div className="navbar-inner">
           <a href="#" className="navbar-logo" aria-label="TupãSoft - Página inicial">
             <div className="logo-icon" aria-hidden="true">
-              ⚡
+              <LightningBoltIcon width="20" height="20" className="logo-bolt-icon" />
             </div>
             Tupã<span className="brand-accent">Soft</span>
           </a>
 
           <div className="navbar-search">
-            <span className="search-icon" aria-hidden="true">
-              🔍
-            </span>
-            <input
-              type="search"
+            <TextField.Root
+              size="2"
+              className="navbar-search-field"
               id="search-input"
+              type="search"
               placeholder="Buscar software..."
               aria-label="Buscar software"
               value={search}
               onChange={(event) => onSearch(event.target.value)}
               autoComplete="off"
-            />
+            >
+              <TextField.Slot>
+                <MagnifyingGlassIcon width="16" height="16" />
+              </TextField.Slot>
+            </TextField.Root>
           </div>
 
           <nav className="navbar-nav" aria-label="Navegação principal">
@@ -40,25 +54,33 @@ export function Navbar({
             <a href="#cta-banner">Contato</a>
           </nav>
 
-          <button type="button" className="cart-btn" id="cart-btn" onClick={onOpenCart} aria-label="Abrir carrinho de compras">
-            🛒
+          <IconButton
+            type="button"
+            className="cart-btn"
+            id="cart-btn"
+            onClick={onOpenCart}
+            aria-label="Abrir carrinho de compras"
+            variant="solid"
+            color="green"
+          >
+            <SoftIcon Icon={getCategoryIcon('supermercado')} size="sm" />
             <span className={`cart-badge ${cartCount > 0 ? 'visible' : ''}`} id="cart-badge" aria-live="polite">
               {cartCount}
             </span>
-          </button>
+          </IconButton>
 
-          <button
+          <IconButton
             type="button"
             className="hamburger"
             id="hamburger-btn"
             aria-label="Abrir menu"
             aria-expanded={mobileOpen}
             onClick={onToggleMobile}
+            variant="soft"
+            color="green"
           >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+            {mobileOpen ? <Cross2Icon width="18" height="18" /> : <HamburgerMenuIcon width="18" height="18" />}
+          </IconButton>
         </div>
       </header>
 
@@ -74,16 +96,16 @@ export function Navbar({
           />
         </div>
         <a href="#categories" className="mobile-link" onClick={onCloseMobile}>
-          📦 Categorias
+          <SoftIcon icon={getCategoryIcon('estoque')} size="sm" /> Categorias
         </a>
         <a href="#products" className="mobile-link" onClick={onCloseMobile}>
-          🖥️ Produtos
+          <SoftIcon icon={getCategoryIcon('supermercado')} size="sm" /> Produtos
         </a>
         <a href="#how-it-works" className="mobile-link" onClick={onCloseMobile}>
-          ℹ️ Como Funciona
+          <SoftIcon icon={PAGE_ICON_COMPONENTS.stepPlan} size="sm" /> Como Funciona
         </a>
         <a href="#cta-banner" className="mobile-link" onClick={onCloseMobile}>
-          📞 Contato
+          <SoftIcon icon={ChatBubbleIcon} size="sm" /> Contato
         </a>
       </div>
     </>

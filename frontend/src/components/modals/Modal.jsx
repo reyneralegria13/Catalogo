@@ -1,35 +1,18 @@
-import { useEffect } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 export function Modal({ open, title, onClose, children, maxWidth }) {
-  useEffect(() => {
-    if (!open) {
-      return undefined
-    }
-
-    function onEscape(event) {
-      if (event.key === 'Escape') {
-        onClose()
-      }
-    }
-
-    document.addEventListener('keydown', onEscape)
-    document.body.style.overflow = 'hidden'
-
-    return () => {
-      document.removeEventListener('keydown', onEscape)
-      document.body.style.overflow = ''
-    }
-  }, [open, onClose])
-
-  if (!open) {
-    return null
-  }
-
   return (
-    <div className="modal-backdrop open" onClick={onClose} role="dialog" aria-modal="true" aria-label={title}>
-      <div className="modal-box" style={maxWidth ? { maxWidth } : undefined} onClick={(event) => event.stopPropagation()}>
-        {children}
-      </div>
-    </div>
+    <Dialog.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="modal-backdrop" />
+        <Dialog.Content
+          className="modal-box"
+          aria-label={title}
+          style={maxWidth ? { maxWidth } : undefined}
+        >
+          {children}
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   )
 }
