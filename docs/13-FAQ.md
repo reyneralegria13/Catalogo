@@ -7,6 +7,33 @@
 
 ## 🛍️ Sobre Compras e Produtos
 
+### P: A TupãSoft vende apenas software de terceiros?
+
+**R:** **Não.** Atuamos em três formatos:
+
+- ✅ **Templates próprios** desenvolvidos pela TupãSoft
+- ✅ **Revenda de softwares parceiros**
+- ✅ **Software personalizado** criado sob especificação do cliente
+
+Assim, conseguimos atender desde necessidades padrão até projetos sob medida.
+
+---
+
+### P: Vocês desenvolvem software sob encomenda?
+
+**R:** **Sim.** Desenvolvemos soluções personalizadas quando o catálogo padrão não atende.
+
+Fluxo resumido:
+
+1. Reunião de briefing e requisitos
+2. Proposta técnica/comercial com escopo, prazo e investimento
+3. Execução por etapas com validações
+4. Implantação e suporte pós-entrega
+
+**Contato:** sales@tupansoft.com.br
+
+---
+
 ### P: Como faço para comprar um software?
 
 **R:** Em 3 passos:

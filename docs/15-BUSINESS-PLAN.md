@@ -11,7 +11,7 @@
 
 ### Proposta
 
-**TupãSoft** é um marketplace digital de software comercial, intermediando a venda de sistemas de gestão para pequenas e médias empresas (PMEs) brasileiras, com foco na Região Norte.
+**TupãSoft** é uma empresa de soluções em software que opera em três linhas de negócio: (1) templates próprios, (2) revenda de softwares de parceiros e (3) desenvolvimento personalizado sob demanda para PMEs brasileiras, com foco na Região Norte.
 
 ### Oportunidade
 
@@ -34,7 +34,7 @@
 | Métrica                  | Valor      |
 | ------------------------ | ---------- |
 | **Receita Bruta**        | R$ 480 mil |
-| **Comissão Média**       | 20-30%     |
+| **Comissão Média (Revenda)** | 20-30% |
 | **Break-even**           | Mês 8      |
 | **Investimento Inicial** | R$ 50 mil  |
 
@@ -73,7 +73,17 @@
 
 ### Revenue Streams
 
-#### 1. Comissão por Venda (Principal)
+#### 1. Templates Próprios
+
+**Modelo:** Produtos desenvolvidos pela TupãSoft com receita majoritariamente direta.
+
+```
+Preço Produto:        R$ 500/mês
+Receita TupãSoft:     R$ 500/mês (menos impostos/taxas)
+Margem Bruta:         Elevada (sem comissionamento de fornecedor)
+```
+
+#### 2. Comissão por Revenda (Parceiros)
 
 **Modelo:** O cliente compra software desejado, TupãSoft recebe comissão do fabricante.
 
@@ -99,14 +109,24 @@ Receita Mensal = Σ (Preço × Comissão % × Clientes)
 Receita Anual = Receita Mensal × 12
 ```
 
-#### 2. Taxas de Plano Premium (Futuro)
+#### 3. Desenvolvimento Personalizado
+
+**Modelo:** Projetos sob especificação do cliente, com proposta técnica e comercial por escopo.
+
+```
+Ticket Projeto:       R$ 15.000 a R$ 250.000+
+Pagamento:            Marco de entrega (entrada + etapas)
+Receita TupãSoft:     Integral, descontados custos externos
+```
+
+#### 4. Taxas de Plano Premium (Futuro)
 
 - 💎 **Gold** — Destaque no catálogo — R$ 99/mês
 - 💎 **Platinum** — Analytics + suporte prioritário — R$ 199/mês
 
 **Projeção:** 5 fornecedores em plano premium = R$ 5 mil/mês (futuro)
 
-#### 3. Publicidade Contextual (Futuro)
+#### 5. Publicidade Contextual (Futuro)
 
 - 📢 Banner na homepage
 - 📢 Email para leads

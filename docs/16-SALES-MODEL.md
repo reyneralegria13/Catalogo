@@ -12,28 +12,31 @@ Este documento descreve **como funciona a venda de produtos digitais** no TupãS
 
 - ✅ Fluxo da compra (cliente)
 - ✅ Fluxo operacional (interno)
-- ✅ Modelo de comissão
+- ✅ Modelos de receita (próprio, revenda e sob demanda)
 - ✅ Processo de suporte e onboarding
 
 ---
 
 ## 🎯 Modelo de Vendas
 
-### Tipo: Marketplace B2B2C
+### Tipo: Modelo Híbrido B2B/B2B2C
 
 ```
-[Fornecedor] ← Comissão → [TupãSoft] ← Venda → [Cliente Final]
+1) Template Próprio (B2B)
+[TupãSoft] → Venda direta → [Cliente]
 
-Exemplo:
-SuperMarket Total (Fornecedor)
-       ↑ Recebe R$ 200 de comissão
-       |
-    TupãSoft [Plataforma]
-       |
-       ↓ Vende por R$ 799/mês
-       |
-  Padaria XYZ (Cliente)
+2) Revenda de Parceiros (B2B2C)
+[Fornecedor] ← Comissão → [TupãSoft] → Venda → [Cliente]
+
+3) Projeto Personalizado (B2B)
+[Cliente] → Especificação → [TupãSoft] → Entrega sob medida
 ```
+
+### Regras Comerciais por Trilha
+
+- **Template próprio:** precificação definida pela TupãSoft, com receita direta.
+- **Revenda:** preço e contrato definidos com parceiro; TupãSoft recebe comissão por venda/renovação.
+- **Personalizado:** proposta técnica/comercial por escopo, prazo e nível de integração.
 
 ### Fluxo da Compra — Perspectiva do Cliente
 
@@ -69,6 +72,29 @@ SuperMarket Total (Fornecedor)
    ├─ Usa software dia-a-dia
    ├─ Recebe suporte contínuo
    └─ Renovação automática (se mensal)
+```
+
+### Fluxo Comercial — Software Personalizado
+
+```
+1. Descoberta e briefing
+     ├─ Cliente explica necessidade
+     └─ TupãSoft levanta requisitos e restrições
+
+2. Diagnóstico e proposta
+     ├─ Escopo funcional
+     ├─ Estimativa de prazo e custo
+     └─ Modelo contratual e marcos
+
+3. Contratação
+     ├─ Assinatura de contrato
+     ├─ Pagamento de entrada
+     └─ Planejamento do projeto
+
+4. Entrega e acompanhamento
+     ├─ Entregas por sprint/marco
+     ├─ Validação com cliente
+     └─ Suporte pós-implantação
 ```
 
 ---

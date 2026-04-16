@@ -8,7 +8,7 @@
 
 ## 📌 Sumário Executivo
 
-**TupãSoft** é um marketplace digital de software comercial, desenvolvido como um single-page application (SPA) moderno e responsivo. A plataforma conecta empresas brasileiras aos melhores sistemas do mercado, com foco em soluções para supermercados, controladoras fiscais, estoque, financeiro, RH e restaurantes.
+**TupãSoft** é uma plataforma digital de soluções de software, desenvolvida como um single-page application (SPA) moderno e responsivo. A empresa atua em três frentes: venda de templates próprios, revenda de softwares de parceiros e desenvolvimento de software personalizado sob especificação do cliente. O foco está em soluções para supermercados, controladoras fiscais, estoque, financeiro, RH e restaurantes.
 
 O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símbolizando força, poder e inovação nascidos no Amazonas.
 
@@ -18,6 +18,7 @@ O nome homenageia **Tupã**, deus do trovão na mitologia Tupi-Guarani, símboli
 | ------------------ | --------------------------------------------------------------- |
 | **Acessibilidade** | Catálogo de softwares com busca, filtros e detalhes intuitivos  |
 | **Conversão**      | Fluxo de compra simplificado com carrinho e integração WhatsApp |
+| **Flexibilidade**  | Atendimento em três modelos: próprio, revenda e sob demanda      |
 | **Regionalidade**  | Suporte especializado com time baseado em Manaus, AM            |
 | **Confiabilidade** | Sistema seguro, conforme com LGPD e boas práticas de mercado    |
 
@@ -142,6 +143,8 @@ catalogo/
 **Total:** 12 produtos  
 **Modelo de Preço:** Mensal (mês) ou Licença única
 
+**Origem da Oferta:** Catálogo pode incluir produtos próprios e soluções de parceiros.
+
 **Exemplos:**
 
 | Nome              | Categoria    | Preço  | Modelo  | Rating |
@@ -168,7 +171,8 @@ catalogo/
 3. Clica em produto → Modal de detalhes
    ├─ Vê features, rating, descrição
    ├─ Opção 1: Adiciona ao carrinho
-   └─ Opção 2: Fala no WhatsApp direto
+   ├─ Opção 2: Fala no WhatsApp direto
+   └─ Opção 3: Solicita versão personalizada
    ↓
 4. Carrinho (localStorage)
    ├─ Ver itens adicionados
@@ -190,6 +194,7 @@ catalogo/
 - ✅ Carrinho com persistência via localStorage
 - ✅ Modal de detalhes com features e rating
 - ✅ Integração WhatsApp para contato
+- ✅ Operação comercial híbrida (produto próprio, revenda e projeto sob demanda)
 - ✅ Animações suaves (IntersectionObserver)
 - ✅ Responsivo (mobile-first)
 - ✅ Menu hambúrguer no mobile

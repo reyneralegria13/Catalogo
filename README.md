@@ -1,11 +1,11 @@
 # ⚡ TupãSoft — Marketplace de Software
 
-> O marketplace de software nascido no coração da Amazônia.  
-> Conectamos empresas brasileiras aos melhores sistemas do mercado, com suporte regional especializado.
+> Plataforma de software nascida no coração da Amazônia.  
+> Oferecemos produtos próprios, revenda de parceiros e projetos sob medida com suporte regional especializado.
 
 ## Sobre o projeto
 
-**TupãSoft** é um site de catálogo e venda intermediária de softwares comerciais — sistemas para supermercado, calculadoras fiscais, controle de estoque, financeiro, RH e restaurante. O nome é uma homenagem a **Tupã**, deus do trovão na mitologia Tupi-Guarani, símbolo de força e poder — valores que representam tecnologia e inovação nascidos no Amazonas.
+**TupãSoft** é um site de catálogo e comercialização de soluções de software para empresas, atuando em três frentes: templates próprios, revenda de softwares de parceiros e desenvolvimento personalizado sob demanda. O nome é uma homenagem a **Tupã**, deus do trovão na mitologia Tupi-Guarani, símbolo de força e poder — valores que representam tecnologia e inovação nascidos no Amazonas.
 
 ## Demonstração
 
@@ -19,8 +19,15 @@ Basta abrir o arquivo `index.html` diretamente no navegador. Nenhuma instalaçã
 - **Carrinho de compras** com persistência via `localStorage`
 - **Modal de detalhes** para cada produto
 - **Integração WhatsApp** para contato direto pelo produto
+- Captação de demanda para **software personalizado** via atendimento consultivo
 - Animações suaves ao rolar a página (IntersectionObserver)
 - Layout **totalmente responsivo** com menu hambúrguer no mobile
+
+## Modelos de atuação da empresa
+
+- **Templates próprios**: produtos desenvolvidos pela TupãSoft e vendidos com receita direta.
+- **Revenda de terceiros**: comercialização de softwares parceiros com comissão por venda.
+- **Software personalizado**: levantamento de requisitos, proposta técnica e desenvolvimento sob especificação do cliente.
 
 ## Estrutura
 

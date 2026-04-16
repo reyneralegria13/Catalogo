@@ -1,6 +1,6 @@
 # 📚 Documentação TupãSoft
 
-Documentação completa do sistema TupãSoft — Marketplace de Software do Amazonas.
+Documentação completa do sistema TupãSoft — Plataforma de soluções de software do Amazonas.
 
 ## 📋 Índice de Documentação
 
