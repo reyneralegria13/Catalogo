@@ -1,116 +1,127 @@
-# ⚡ TupãSoft — Marketplace de Software
+# TupãSoft - Marketplace de Software
 
-> Plataforma de software nascida no coração da Amazônia.  
-> Oferecemos produtos próprios, revenda de parceiros e projetos sob medida com suporte regional especializado.
+Plataforma de catálogo de software com frontend React, backend Node.js (Express + Sequelize) e PostgreSQL.
 
-## Sobre o projeto
+## Visão Geral
 
-**TupãSoft** é um site de catálogo e comercialização de soluções de software para empresas, atuando em três frentes: templates próprios, revenda de softwares de parceiros e desenvolvimento personalizado sob demanda. O nome é uma homenagem a **Tupã**, deus do trovão na mitologia Tupi-Guarani, símbolo de força e poder — valores que representam tecnologia e inovação nascidos no Amazonas.
+O TupãSoft é um marketplace de software que conecta desenvolvedores e empresas. Ele oferece um catálogo de soluções de software, permitindo que os usuários descubram, avaliem e adquiram produtos digitais. Nosso modelo de negócios é baseado em comissões sobre vendas, proporcionando uma plataforma segura e eficiente para transações entre compradores e vendedores.
 
-## Demonstração
+O sistema é composto por um frontend moderno em React, um backend robusto em Node.js com Express e Sequelize para gerenciamento de dados, e um banco de dados PostgreSQL para armazenamento persistente.
 
-Basta abrir o arquivo `index.html` diretamente no navegador. Nenhuma instalação necessária.
+## Arquitetura
 
-## Funcionalidades
+- Frontend: React 19, Vite, Radix UI
+- Backend: Node.js ESM, Express, Sequelize, Zod
+- Banco: PostgreSQL relacional com persistência em volume Docker
 
-- Catálogo com **12 softwares** em **6 categorias**
-- **Busca** com debounce, normalização de acentos e destaque do termo encontrado
-- **Filtros** por categoria, faixa de preço e ordenação
-- **Carrinho de compras** com persistência via `localStorage`
-- **Modal de detalhes** para cada produto
-- **Integração WhatsApp** para contato direto pelo produto
-- Captação de demanda para **software personalizado** via atendimento consultivo
-- Animações suaves ao rolar a página (IntersectionObserver)
-- Layout **totalmente responsivo** com menu hambúrguer no mobile
+## Estrutura do Repositório
 
-## Modelos de atuação da empresa
-
-- **Templates próprios**: produtos desenvolvidos pela TupãSoft e vendidos com receita direta.
-- **Revenda de terceiros**: comercialização de softwares parceiros com comissão por venda.
-- **Software personalizado**: levantamento de requisitos, proposta técnica e desenvolvimento sob especificação do cliente.
-
-## Estrutura
-
-```
-/
-├── index.html      # Página principal (hero, catálogo, como funciona, footer)
-├── style.css       # Design system — paleta verde amazônica
-├── script.js       # Lógica de catálogo, carrinho, filtros e modais
-├── .gitignore
+```text
+tupa-soft/
+├── frontend/
+├── backend/
+├── docs/
+├── docker-compose.yml
+├── .env.compose.example
 └── README.md
 ```
 
-## Stack
+## Pré-requisitos
 
-- **HTML5** semântico (`lang="pt-BR"`, `aria-*`, `<article>`, `<dialog>`)
-- **CSS3** puro — Grid, Custom Properties, animações, responsivo
-- **JavaScript** vanilla — sem frameworks ou dependências externas
+### Para rodar com Docker (recomendado)
 
-## Como personalizar
+- Docker 24+
+- Docker Compose 2+
 
-### Número do WhatsApp
+### Para rodar sem Docker
 
-Em `script.js`, linha `194`, altere o número para o seu:
+- Node.js 20+
+- npm 10+
+- PostgreSQL 14+
+- psql (CLI)
 
-```js
-const phone = '5592999990000'; // DDI(55) + DDD(92) + número
+## Execução Rápida com Docker
+
+1. Criar arquivo de ambiente do Compose:
+
+```bash
+cp .env.compose.example .env.compose
 ```
 
-O mesmo número aparece no footer em `index.html`.
+2. Subir tudo:
 
-### Adicionar um produto
-
-No array `PRODUCTS` em `script.js`, inclua um novo objeto seguindo o padrão:
-
-```js
-{
-  id: 13,
-  name: 'Nome do Software',
-  category: 'supermercado', // slug da categoria
-  categoryLabel: 'Supermercado',
-  price: 499,
-  priceModel: 'mês',        // 'mês' ou 'licença'
-  rating: 4.7,
-  reviews: 80,
-  badge: 'Novo',
-  badgeType: 'badge-new',   // badge-hot | badge-new | badge-accent | badge-primary
-  description: 'Descrição curta do produto.',
-  features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-  icon: '🖥️',
-}
+```bash
+docker compose --env-file .env.compose up --build
 ```
 
-### Adicionar uma categoria
+3. Acessar:
 
-No array `CATEGORIES` em `script.js`:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3333/api
+- Health check: http://localhost:3333/api/health
+- PostgreSQL host: localhost:5433
 
-```js
-{ id: 'novo-slug', label: 'Nome da Categoria', icon: '🆕', count: 1 }
+### Persistência do banco
+
+- O volume postgres_data mantém os dados entre reinícios.
+- O arquivo backend/db/sql/init.sql roda somente na primeira criação do volume.
+
+### Comandos úteis Docker
+
+```bash
+# Subir em background
+docker compose --env-file .env.compose up --build -d
+
+# Ver status
+docker compose --env-file .env.compose ps
+
+# Ver logs
+docker compose --env-file .env.compose logs -f
+
+# Parar sem apagar dados
+docker compose --env-file .env.compose down
+
+# Parar e apagar dados do banco
+docker compose --env-file .env.compose down -v
 ```
 
-### Cores
+## Variáveis de Ambiente
 
-Todas as cores estão como variáveis CSS no `:root` de `style.css` e podem ser alteradas centralmente.
+### Compose (.env.compose)
 
-## Categorias disponíveis
+- DB_USER: usuário do Postgres
+- DB_PASSWORD: senha do Postgres
+- DB_NAME: nome do banco
+- DB_PORT: porta do Postgres no host
+- PORT_BACKEND: porta da API no host
+- CORS_ORIGIN: origem liberada para frontend
+- PORT_FRONTEND: porta do frontend no host
 
-| Slug | Categoria |
-|---|---|
-| `supermercado` | Gestão de Supermercado |
-| `calculadoras` | Calculadoras Fiscais |
-| `estoque` | Controle de Estoque |
-| `financeiro` | Financeiro |
-| `rh` | RH e Folha de Pagamento |
-| `restaurante` | Restaurante / PDV |
+## Documentação por Módulo
 
-## Informações de contato
+- Frontend: frontend/README.md
+- Backend: backend/README.md
+- Documentação funcional e negócio: docs/README.md
 
-Atualize os dados reais de contato no footer de `index.html`:
+## Contribuição
 
-- Endereço, telefone, e-mail
-- Links de redes sociais
-- Número do WhatsApp
+Contribuições são bem-vindas! Para contribuir, siga as etapas abaixo:
+
+1. Fork este repositório
+2. Crie uma branch para sua feature (`git checkout -b feature/nome-da-feature`)
+3. Faça commit das suas alterações (`git commit -m 'Adiciona nova feature')
+4. Push para a branch (`git push origin feature/nome-da-feature`)
+5. Abra um Pull Request
+
+## Equipe
+
+- João Carlos
+- Reyner Alegria
+- João Paulo
+- Margarida
+- Elizabeth
+- José André
 
 ## Licença
 
-Projeto proprietário — © 2026 TupãSoft. Todos os direitos reservados.
+Projeto proprietário - © 2026 TupãSoft.
